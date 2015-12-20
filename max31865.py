@@ -28,6 +28,11 @@ import RPi.GPIO as GPIO
 class max31865(object):
 	"""Reading Temperature from the MAX31865 with GPIO using 
 	   the Raspberry Pi.  Any pins can be used.
+	   Numpy can be used to completely solve the Callendar-Van Dusen equation 
+	   but it slows the temp reading down.  I commented it out in the code.  
+	   Both the quadratic formula using Callendar-Van Dusen equation (ignoring the
+	   3rd and 4th degree parts of the polynomial) and the straight line approx.
+	   temperature is calculated with the quadratic formula one being the most accurate.
 	"""
 	def __init__(self, csPin = 8, misoPin = 9, mosiPin = 10, clkPin = 11):
 		self.csPin = csPin
