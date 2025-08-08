@@ -112,11 +112,11 @@ class max31865(object):
 		# bits 1,0 don't care	
 		#print "Status byte: %x" % status
 
-		if ((status & 0x80) == 1):
+		if (status & 0x80):
 			raise FaultError("High threshold limit (Cable fault/open)")
-		if ((status & 0x40) == 1):
+		if (status & 0x40):
 			raise FaultError("Low threshold limit (Cable fault/short)")
-		if ((status & 0x04) == 1):
+		if (status & 0x04):
 			raise FaultError("Overvoltage or Undervoltage Error") 
 		
 	def writeRegister(self, regNum, dataByte):
